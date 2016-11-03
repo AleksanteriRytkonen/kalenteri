@@ -1,0 +1,17 @@
+td {
+    border-bottom: solid 1px black;
+}
+td:nth-child(even) {
+    background-color: #0c4d78;
+}
+td:nth-child(odd){
+    background-color: #da3116;
+   /* background: linear-gradient(90deg, pink 50%, cyan 50%);
+    background: linear-gradient(180deg, pink 50%, cyan 50%);*/
+}
+td:hover {
+    background-color: #3adb76;
+}
+.headertablerow {
+    background-color: #8a8a8a;
+}

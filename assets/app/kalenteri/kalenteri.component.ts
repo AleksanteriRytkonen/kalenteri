@@ -8,6 +8,9 @@ export class KalenteriComponent {
     d;
     paiva:number;
     pvm;
+    viikonPaivat:any[] = [];
+    kalenteriPaivamaarat:any[] = [];
+    kellonAjat:any[] = [];
 
     constructor(){
         this.d = new Date();
@@ -17,30 +20,36 @@ export class KalenteriComponent {
 
     ngAfterViewInit(){
         let paivat:string[] = ['Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai', 'Sunnuntai'];
-        let viikonPaivat:string[] = [];
-        let kalenteriPaivamaarat:string[] = [];
 
         let curDay = paivat[this.paiva - 1];
         let curDate = this.pvm;
 
+        for(let i = 0; i <= 23; i++) {
+            if(i < 10) {
+                this.kellonAjat.push("0"+i+":00");
+            } else {
+                this.kellonAjat.push(i + ":00");
+            }
+        }
+
+
         for(let i = 0; i < 7; i++) {
-            viikonPaivat.push(curDay);
+            this.viikonPaivat.push(curDay);
             if(curDay === 'Sunnuntai') {
                 this.paiva = 0;
             }
             curDay = paivat[this.paiva];
             this.paiva++;
         }
-        kalenteriPaivamaarat.push(curDate);
+        this.kalenteriPaivamaarat.push(curDate);
         for(let i = 1; i < 7; i++) {
             let huominen = new Date();
             huominen.setDate(this.d.getDate()+i);
-            kalenteriPaivamaarat.push((huominen.getDate() + "." + (huominen.getMonth()+1) + "." + huominen.getFullYear()));
+            this.kalenteriPaivamaarat.push((huominen.getDate() + "." + (huominen.getMonth()+1) + "." + huominen.getFullYear()));
 
         }
 
-        console.log(viikonPaivat);
-        console.log(kalenteriPaivamaarat);
+        console.log(this.kellonAjat);
     }
 
 }
