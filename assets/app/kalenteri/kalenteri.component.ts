@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {InputComponent} from "../input/input.component";
 
 @Component({
     selector: 'kalenteri-app',
@@ -11,7 +12,10 @@ export class KalenteriComponent {
     viikonPaivat:any[] = [];
     kalenteriPaivamaarat:any[] = [];
     kellonAjat:any[] = [];
-    tableDatas:number[] = [1, 2, 3, 4, 5, 6, 7];
+    naytaTapahtuma:boolean = false;
+    tapahtumaId:string;
+    tapahtumaKlo:string;
+    tapahtumaPvm:string;
 
     constructor(){
         this.d = new Date();
@@ -49,12 +53,15 @@ export class KalenteriComponent {
             this.kalenteriPaivamaarat.push((huominen.getDate() + "." + (huominen.getMonth()+1) + "." + huominen.getFullYear()));
 
         }
-
-        console.log(this.kellonAjat);
     }
 
-    alertti(obj){
-        alert(obj);
+    lisaaTapahtuma(obj){
+        //console.log(obj);
+        this.tapahtumaId = obj;
+        this.tapahtumaKlo = obj.slice(-5);
+        this.tapahtumaPvm = obj.slice(0, -5);
+        this.naytaTapahtuma = true;
+        //this.naytaTapahtuma = !this.naytaTapahtuma;
     }
 
 }

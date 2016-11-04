@@ -1,5 +1,10 @@
 <div class="row">
-    <div class="small-2 columns">haloo</div>
+    <div class="small-2 columns">
+        Previous
+        <div *ngIf="naytaTapahtuma === true">
+            <input-app [tapahtumaId]="tapahtumaId" [tapahtumaKlo]="tapahtumaKlo" [tapahtumaPvm]="tapahtumaPvm"></input-app>
+        </div>
+    </div>
     <div class="small-6 columns">
       <table class="hover">
             <thead>
@@ -15,9 +20,9 @@
             <tbody>
                 <tr *ngFor="let kello of kellonAjat">
                     <td>{{kello}}</td>
-                    <td *ngFor="let i of tableDatas" id="{{kello + i}}" (click)="alertti(kello + i)"></td>
+                    <td *ngFor="let pvm of kalenteriPaivamaarat" id="{{pvm + kello}}" (click)="lisaaTapahtuma(pvm + kello)"></td>
                 </tr>
         </table>
     </div>
-    <div class="small-2 columns">haloo</div>
+    <div class="small-2 columns">Next</div>
 </div>
