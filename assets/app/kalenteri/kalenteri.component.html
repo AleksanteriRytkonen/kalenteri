@@ -8,7 +8,7 @@
     <div class="small-6 columns">
       <table class="hover">
             <thead>
-            <tr class="headertablerow">
+            <tr>
                 <th class="headertablerow"></th>
                 <th *ngFor="let viikonpaiva of viikonPaivat" class="headertablerow">{{viikonpaiva}}</th>
             </tr>
@@ -17,11 +17,13 @@
                 <th *ngFor="let paivaM of kalenteriPaivamaarat" class="headertablerow">{{paivaM}}</th>
             </tr>
             </thead>
+
             <tbody>
-                <tr *ngFor="let kello of kellonAjat">
+                <tr *ngFor="let kello of kellonAjat" class="hele">
                     <td>{{kello}}</td>
                     <td *ngFor="let pvm of kalenteriPaivamaarat" id="{{pvm + kello}}" (click)="lisaaTapahtuma(pvm + kello)"></td>
                 </tr>
+            </tbody>
         </table>
     </div>
     <div class="small-2 columns">Next</div>
