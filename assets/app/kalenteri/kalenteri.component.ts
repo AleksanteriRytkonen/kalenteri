@@ -11,6 +11,7 @@ export class KalenteriComponent {
     viikonPaivat:any[] = [];
     kalenteriPaivamaarat:any[] = [];
     kellonAjat:any[] = [];
+    tableDatas:number[] = [1, 2, 3, 4, 5, 6, 7];
 
     constructor(){
         this.d = new Date();
@@ -50,6 +51,10 @@ export class KalenteriComponent {
         }
 
         console.log(this.kellonAjat);
+    }
+
+    alertti(obj){
+        alert(obj);
     }
 
 }
